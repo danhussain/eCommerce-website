@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Shoe Shop</title>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+</head>
+<body>
+	<div class="container">
+		<div class = "jumbotron">
+			<h1>Cart</h1>
+			<b style="color:#FF0000";>{{error}}</b>
+			<h2><a href=/shoeshop/products>View Products</a></h2>
+			<h2><a href=/shoeshop/logout_view>Logout</a></h2>
+		</div>
+		<div class="col-md-4 col-sm-6 col-xm-12">
+			<table>
+			<tr>
+		    	<th>Product Name</th>
+		    	<th>Product Price</th>
+		    	<th>Product Size</th>
+		    	<th>Product Colour</th>
+		    	<th>Product Quantity</th>
+		    	<th>Product Total Price</th>
+		    </tr>
+		    {% for c in Carts %}
+			<tr>
+				<td>{{c.product.name}}</td>
+			    <td>{{c.product.price}}</td>
+			    <td>{{c.product.size}}</td>
+			    <td>{{c.product.colour}}</td>
+			    <td>{{c.quantity}}</td>
+			    <td>{{c.total_price}}</td>
+			    <td><a href="?add={{c.product.id}}">Increase quantity</a></td>
+			    <td><a href="?delete={{c.product.id}}">Decrease quantity</a></td>
+			    <td><a href="?remove={{c.product.id}}">Remove from Cart</a></td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th>Cart Total</th>
+				<td>{{Final}}</td>
+			</tr>
+			</table>
+			<h3><a href="?checkout">Checkout</a></h3>
+		</div>
+	</div>
+</body>
+</html>

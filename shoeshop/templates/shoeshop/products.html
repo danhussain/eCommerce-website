@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Shoe Shop</title>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+</head>
+<body>
+	<div class="container">
+		<div class = "jumbotron">
+			<h1>Products</h1>
+			<h2><a href=/shoeshop/cart>View Cart</a></h2>
+			<h2><a href=/shoeshop/logout_view>Logout</a></h2>		
+		</div>
+		<div class="col-md-4 col-sm-6 col-xm-12">
+			<table>
+			<tr>
+		    	<th>Product Name</th>
+		    	<th>Product Price</th>
+		    	<th>Product Size</th>
+		    	<th>Product Colour</th>
+		    </tr>
+			{% for product in Products %}
+			<tr>
+			    <td>{{product.name}}</td>
+			    <td>{{product.price}}</td>
+			    <td>{{product.size}}</td>
+			    <td>{{product.colour}}</td>
+			    <td><a href="?add={{product.id}}">Add to Cart</a></td>
+			</tr>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
